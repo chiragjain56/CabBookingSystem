@@ -22,13 +22,16 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public User updateUser(User user) throws UserException {
-		User curUser = userDao.getById(user.getUserId());
-		if(curUser==null) throw new UserException("User doesn't exist with this userId : "+user.getUserId());
-//		if(!user.getUsername().equals(curUser.getUsername())) {
-//			curUser.setUsername(user.getUsername());
-//		}
-		return userDao.save(curUser);
+	public User updateUser(Integer id ,User user) throws UserException {
+		User curUser = userDao.getById(id);
+		if(curUser==null) throw new UserException("User doesn't exist with this userId : "+id);
+		curUser.setUsername(user.getUsername());
+		curUser.setName(user.getName());
+		curUser.setEmail(user.getEmail());
+		curUser.setPassword(user.getPassword());
+		curUser.setMobileNo(user.getMobileNo());
+		final User finalUser = curUser;
+		return userDao.save(finalUser);
 	}
 
 	@Override
@@ -46,6 +49,11 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public User getUserById(Integer id) throws UserException {
 		return userDao.findById(id).orElseThrow(() -> new CabException("User doesn't exist with id : " + id));
+	}
+
+	@Override
+	public User getUserByUsername(String username) throws UserException {
+		return userDao.findByUsername(username);
 	}
 
 }
