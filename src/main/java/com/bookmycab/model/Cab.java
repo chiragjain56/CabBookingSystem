@@ -14,6 +14,9 @@ import lombok.NoArgsConstructor;
 @Entity
 @NoArgsConstructor
 public class Cab {
+
+    // TODO: make the members private
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	Integer cabId;
