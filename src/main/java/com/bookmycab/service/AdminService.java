@@ -1,16 +1,19 @@
 package com.bookmycab.service;
 
-import java.time.LocalDateTime;
-import java.util.*;
-
+import com.bookmycab.exceptions.AdminException;
 import com.bookmycab.model.Admin;
+
+import java.util.List;
 
 public interface AdminService {
 
     // CRUD on Admin table
+    Admin getAdmin(Integer adminId) throws AdminException;
     Admin insertAdmin(Admin admin);
-    Admin updateAdmin(Admin admin);
-    Admin deleteAdmin(Integer adminId);
+    Admin updateAdmin(Integer id, Admin admin) throws AdminException;
+    Admin deleteAdmin(Integer adminId) throws AdminException;
+
+    List<Admin> getAllAdmins();
 
     // TODO: implement these trip related CRUD
 

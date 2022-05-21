@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.*;
 import com.bookmycab.model.User;
 import com.bookmycab.service.UserService;
 
+// TODO: Completely remove User Controller
+
 @RestController
 @RequestMapping("/users")
 public class UserController {
