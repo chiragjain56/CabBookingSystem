@@ -16,10 +16,6 @@ public class CustomerController {
     @Autowired
     private CustomerService customerService;
 
-    @Autowired
-    CustomerRepository customerRepositry;
-
-
     @GetMapping("/customer")
     public List<Customer> viewCustomers(){
         return customerService.viewCustomers();
@@ -37,7 +33,7 @@ public class CustomerController {
     }
 
     @PostMapping("/customer")
-    public Customer insertCustomer(Customer customer){
+    public Customer insertCustomer(@RequestBody Customer customer){
         return customerService.insertCustomer(customer);
     }
 
