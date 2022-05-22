@@ -2,7 +2,7 @@ package com.bookmycab.service;
 
 import com.bookmycab.exceptions.AdminException;
 import com.bookmycab.model.Admin;
-import com.bookmycab.repository.AdminRepository;
+import com.bookmycab.repository.AdminDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +13,7 @@ import java.util.Objects;
 public class AdminServiceImpl implements AdminService {
 
     @Autowired
-    private AdminRepository adminRepository;
+    private AdminDao adminRepository;
 
     @Override
     public Admin getAdmin(Integer adminId) throws AdminException {

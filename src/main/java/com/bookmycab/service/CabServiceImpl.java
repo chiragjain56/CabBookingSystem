@@ -11,32 +11,59 @@ import com.bookmycab.repository.CabDao;
 
 @Service
 public class CabServiceImpl implements CabService {
-	
-	@Autowired
-	private CabDao cabDao;
 
-	@Override
-	public Cab addCab(Cab cab) {
-		return cabDao.save(cab);
-	}
+    @Autowired
+    private CabDao cabDao;
 
-	@Override
-	public Cab getCabById(Integer id) throws CabException {
-		return cabDao.findById(id).orElseThrow(() -> new CabException("Cab doesn't exist with id : " + id));
-	}
+    @Override
+    public Cab addCab(Cab cab) {
+        return cabDao.save(cab);
+    }
 
-	@Override
-	public List<Cab> getAllCabs() {
-		return cabDao.findAll();
-	}
+    @Override
+    public Cab getCabById(Integer id) throws CabException {
+        return cabDao.findById(id).orElseThrow(() -> new CabException("Cab doesn't exist with id : " + id));
+    }
 
-	@Override
-	public Cab deleteCabById(Integer id) throws CabException {
-		Cab st = cabDao.findById(id).orElseThrow(() -> new CabException("Cab with id : " + id + " does not exit.."));
+    @Override
+    public List<Cab> getAllCabs() {
+        return cabDao.findAll();
+    }
 
-		cabDao.delete(st);
+    @Override
+    public Cab updateCab(Integer id, Cab cab) throws CabException {
+        Cab cab1 = cabDao.findById(id).orElseThrow(() -> new CabException("Cab with id : " + id + " does not exit.."));
+        cab1.setPerKmRate(cab.getPerKmRate());
+        cab1.setAvailable(cab.getAvailable());
+        cab1.setCabType(cab.getCabType());
+        cab1.setSittingCapcity(cab.getSittingCapcity());
+        cabDao.save(cab1);
+        return cab1;
+    }
 
-		return st;
-	}
+    @Override
+    public List<Cab> getCabByType(String cabType) {
+        return cabDao.findAllByCabType(cabType);
+    }
+
+    @Override
+    public Integer countCabByType(String cabType) {
+        return cabDao.findAllByCabType(cabType).size();
+    }
+
+    @Override
+    public Boolean updateAvailiblityStatus(Integer id, Boolean status) {
+        Cab cab1 = cabDao.findById(id).orElseThrow(() -> new CabException("Cab with id : " + id + " does not exit.."));
+        cab1.setAvailable(status);
+        cabDao.save(cab1);
+        return cab1.getAvailable();
+    }
+
+    @Override
+    public Cab deleteCabById(Integer id) throws CabException {
+        Cab st = cabDao.findById(id).orElseThrow(() -> new CabException("Cab with id : " + id + " does not exit.."));
+        cabDao.delete(st);
+        return st;
+    }
 
 }

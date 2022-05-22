@@ -35,14 +35,14 @@ public class UserController {
     }
 
     @PutMapping("/{id}")
-    public User updateUserHandler(@PathVariable("id") Integer id, @RequestBody User user){
-        return userService.updateUser(id,user);
+    public User updateUserHandler(@PathVariable("id") Integer id, @RequestBody User user) {
+        return userService.updateUser(id, user);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteUserHandler(@PathVariable("id") Integer id){
+    public ResponseEntity<String> deleteUserHandler(@PathVariable("id") Integer id) {
         userService.deleteUser(id);
-        return new ResponseEntity<>("User deleted with id!"+id, HttpStatus.OK);
+        return new ResponseEntity<>("User deleted with id!" + id, HttpStatus.OK);
     }
 
     @GetMapping("/login")
@@ -51,7 +51,7 @@ public class UserController {
         if (curUser.getPassword().equals(password))
             return new ResponseEntity<>("Login success!", HttpStatus.OK);
         else
-            return new ResponseEntity<>("Password not matched!",HttpStatus.UNAUTHORIZED);
+            return new ResponseEntity<>("Password not matched!", HttpStatus.UNAUTHORIZED);
     }
 
 }

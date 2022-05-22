@@ -9,8 +9,11 @@ public interface AdminService {
 
     // CRUD on Admin table
     Admin getAdmin(Integer adminId) throws AdminException;
+
     Admin insertAdmin(Admin admin);
+
     Admin updateAdmin(Integer id, Admin admin) throws AdminException;
+
     Admin deleteAdmin(Integer adminId) throws AdminException;
 
     List<Admin> getAllAdmins();
