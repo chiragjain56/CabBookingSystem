@@ -2,10 +2,12 @@ package com.bookmycab.model;
 
 import java.util.Locale;
 
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,6 +18,7 @@ import lombok.NoArgsConstructor;
 public class Cab {
 
     // TODO: make the members private
+
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
