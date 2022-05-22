@@ -10,9 +10,16 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Entity
 public class Driver extends User {
-//    @Autowired
-    @OneToOne (mappedBy = "cab")
+
+    @OneToOne(
+            cascade = CascadeType.ALL
+    )
+    @JoinColumn(
+            name = "cab_id",
+            referencedColumnName = "cabId"
+    )
     private  Cab cab;
+
     private  String dl;
     private  Float rating;
 

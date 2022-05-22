@@ -21,22 +21,22 @@ public class CabController {
 	@Autowired
 	private CabService cabservice;
 	
-	@PostMapping("/cabs")
+	@PostMapping("/cab")
 	public Cab addCabHandler(@RequestBody Cab cab) {
 		return cabservice.addCab(cab);
 	}
 	
-	@GetMapping("/cabs")
+	@GetMapping("/cab")
 	public List<Cab> getAllCabsHandler() {
 		return cabservice.getAllCabs();
 	}
 	
-	@GetMapping("/cabs/{cabId}")
+	@GetMapping("/cab/{cabId}")
 	public Cab getCabByIdHandler(@PathVariable("cabId") Integer id) {
 		return cabservice.getCabById(id);
 	}
 	
-	@DeleteMapping("/cabs/{cabId}")
+	@DeleteMapping("/cab/{cabId}")
 	public ResponseEntity<Cab> deleteCabByIdHandler(@PathVariable("cabId") Integer id) {
 		Cab cab = cabservice.deleteCabById(id);
 		return new ResponseEntity<Cab>(cab, HttpStatus.OK);

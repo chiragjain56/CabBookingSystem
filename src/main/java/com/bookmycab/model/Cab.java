@@ -10,12 +10,7 @@ import lombok.NoArgsConstructor;
 @Data
 @Entity
 @NoArgsConstructor
-
 public class Cab {
-    @OneToOne(optional = false)
-private  Driver driver;
-
-    // TODO: make the members private
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
