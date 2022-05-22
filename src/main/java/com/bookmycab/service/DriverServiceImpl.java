@@ -1,6 +1,5 @@
 package com.bookmycab.service;
 
-import com.bookmycab.exceptions.CabException;
 import com.bookmycab.exceptions.DriverException;
 import com.bookmycab.model.Driver;
 import com.bookmycab.repository.DriverDao;

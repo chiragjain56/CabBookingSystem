@@ -3,7 +3,6 @@ package com.bookmycab.service;
 import com.bookmycab.exceptions.DriverException;
 import com.bookmycab.model.Driver;
 
-import javax.persistence.criteria.CriteriaBuilder;
 import java.util.List;
 
 public interface DriverService {

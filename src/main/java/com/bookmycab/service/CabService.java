@@ -1,9 +1,9 @@
 package com.bookmycab.service;
 
-import java.util.List;
-
 import com.bookmycab.exceptions.CabException;
 import com.bookmycab.model.Cab;
+
+import java.util.List;
 
 public interface CabService {
     Cab addCab(Cab cab);

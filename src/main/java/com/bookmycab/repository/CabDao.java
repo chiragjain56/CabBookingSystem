@@ -1,8 +1,7 @@
 package com.bookmycab.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-
 import com.bookmycab.model.Cab;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 

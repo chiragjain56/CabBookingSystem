@@ -12,7 +12,7 @@ public interface TripService {
 
     Trip deleteTrip(Integer id) throws TripException;
 
-    List<Trip> getAllTrips(Integer customerId) throws TripException;
-
-    Double calculateBill(Integer customerId) throws TripException;
+//    List<Trip> getAllTrips(Integer customerId) throws TripException;
+//
+//    Double calculateBill(Integer customerId) throws TripException;
 }

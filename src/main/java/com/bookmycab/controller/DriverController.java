@@ -3,7 +3,6 @@ package com.bookmycab.controller;
 import com.bookmycab.model.Driver;
 import com.bookmycab.service.DriverService;
 import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

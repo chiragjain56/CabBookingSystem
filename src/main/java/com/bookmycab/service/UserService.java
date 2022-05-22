@@ -1,9 +1,9 @@
 package com.bookmycab.service;
 
-import java.util.List;
-
 import com.bookmycab.exceptions.UserException;
 import com.bookmycab.model.User;
+
+import java.util.List;
 
 public interface UserService {
     User saveUser(User user) throws UserException;

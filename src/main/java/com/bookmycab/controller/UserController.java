@@ -1,14 +1,13 @@
 package com.bookmycab.controller;
 
-import java.util.List;
-
+import com.bookmycab.model.User;
+import com.bookmycab.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.bookmycab.model.User;
-import com.bookmycab.service.UserService;
+import java.util.List;
 
 // TODO: Completely remove User Controller
 

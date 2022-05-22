@@ -3,7 +3,6 @@ package com.bookmycab.controller;
 
 import com.bookmycab.exceptions.CustomerExceptions;
 import com.bookmycab.model.Customer;
-import com.bookmycab.repository.CustomerRepository;
 import com.bookmycab.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

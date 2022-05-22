@@ -1,15 +1,9 @@
 package com.bookmycab.model;
 
-import java.util.Locale;
-
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-
-
-import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Data
 @Entity

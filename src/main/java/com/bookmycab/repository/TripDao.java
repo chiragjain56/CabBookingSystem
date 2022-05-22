@@ -9,6 +9,6 @@ import java.util.List;
 
 @Repository
 public interface TripDao extends JpaRepository<Trip, Integer> {
-    List<Trip> findAllByCustomerId(Integer customerId) throws TripException;
-    Double findBillByCustomerId(Integer customerId) throws TripException;
+//    List<Trip> findAllByUserId(Integer userId) throws TripException;
+//    Double findBillByUserId(Integer userId) throws TripException;
 }

@@ -1,14 +1,13 @@
 package com.bookmycab.service;
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.bookmycab.exceptions.CabException;
 import com.bookmycab.exceptions.UserException;
 import com.bookmycab.model.User;
 import com.bookmycab.repository.UserDao;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService{

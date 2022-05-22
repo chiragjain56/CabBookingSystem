@@ -3,7 +3,7 @@ package com.bookmycab.model;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
 
 @Data
 @NoArgsConstructor

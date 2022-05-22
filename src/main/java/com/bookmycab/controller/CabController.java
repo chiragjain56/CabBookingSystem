@@ -1,14 +1,13 @@
 package com.bookmycab.controller;
 
-import java.util.List;
-
+import com.bookmycab.model.Cab;
+import com.bookmycab.service.CabService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.bookmycab.model.Cab;
-import com.bookmycab.service.CabService;
+import java.util.List;
 
 @RestController
 @RequestMapping("/cabs")

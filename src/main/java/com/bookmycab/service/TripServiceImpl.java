@@ -38,17 +38,17 @@ public class TripServiceImpl implements TripService{
         return trip1;
     }
 
-    @Override
-    public List<Trip> getAllTrips(Integer customerId) throws TripException{
-        List<Trip> list = tripDao.findAllByCustomerId(customerId);
-        if(list.size()==0) throw new TripException("No trips found for customerId : "+customerId);
-        return list;
-    }
-
-    @Override
-    public Double calculateBill(Integer customerId) throws TripException {
-        Double bill = tripDao.findBillByCustomerId(customerId);
-        if(bill==0) throw new TripException("No trip/bill found for customerId : "+customerId);
-        return bill;
-    }
+//    @Override
+//    public List<Trip> getAllTrips(Integer customerId) throws TripException{
+//        List<Trip> list = tripDao.findAllByUserId(customerId);
+//        if(list.size()==0) throw new TripException("No trips found for customerId : "+customerId);
+//        return list;
+//    }
+//
+//    @Override
+//    public Double calculateBill(Integer customerId) throws TripException {
+//        Double bill = tripDao.findBillByUserId(customerId);
+//        if(bill==0) throw new TripException("No trip/bill found for customerId : "+customerId);
+//        return bill;
+//    }
 }
