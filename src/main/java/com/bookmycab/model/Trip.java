@@ -18,10 +18,10 @@ public class Trip {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer tripId;
-
-    private Integer customerId;
-	@ManyToOne(mappedBy = "Trip")
-	private Integer driverId;
+	@ManyToOne
+	private Customer customer;
+	@ManyToOne
+	private Driver driver;
     private String fromLocation;
     private String toLocation;
     private LocalDateTime fromDateTime;

@@ -1,5 +1,7 @@
 package com.bookmycab.model;
 
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
@@ -21,9 +23,10 @@ public class Driver extends User {
             name = "cab_id",
             referencedColumnName = "cabId"
     )
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name = "driver_id", referencedColumnName = "driverId")
     private  Cab cab;
+	@OneToMany
+	@JoinColumn(name = "driver_id", referencedColumnName = "userId")
+	private List<Trip> trips;
 
     private  String dl;
     private  Float rating;
