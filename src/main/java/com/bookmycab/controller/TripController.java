@@ -19,9 +19,8 @@ public class TripController {
     private TripService tripService;
 
     @PostMapping("/{c}/{d}")
-    ResponseEntity<Trip> saveTrip(@RequestBody Trip trip, @PathVariable("c") Integer customerId, @PathVariable("d") Integer driverId){
-        tripService.addTrip(trip, customerId, driverId);
-        return new ResponseEntity<Trip>(HttpStatus.ACCEPTED);
+    Trip saveTrip(@RequestBody Trip trip, @PathVariable("c") Integer customerId, @PathVariable("d") Integer driverId){
+        return tripService.addTrip(trip, customerId, driverId);
     }
 
 //    @PostMapping
