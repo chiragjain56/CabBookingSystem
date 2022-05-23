@@ -13,15 +13,14 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "Trips")
 public class Trip {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer tripId;
-	@ManyToOne
-	private Customer customer;
-	@ManyToOne
-	private Driver driver;
+    @ManyToOne
+    private Customer customer;
+    @ManyToOne
+    private Driver driver;
     private String fromLocation;
     private String toLocation;
     private LocalDateTime fromDateTime;

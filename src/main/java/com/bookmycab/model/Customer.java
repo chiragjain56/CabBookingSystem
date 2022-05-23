@@ -2,9 +2,7 @@ package com.bookmycab.model;
 
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,10 +11,9 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @Entity
-public class Customer extends User{
+public class Customer extends User {
 
-	@OneToMany
-	@JoinColumn(name = "customer_id", referencedColumnName = "userId")
-	private List<Trip> trips;
-	
+    @OneToMany(mappedBy = "customer")
+    private List<Trip> trips;
+
 }

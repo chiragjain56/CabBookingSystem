@@ -17,7 +17,6 @@ public class CabController {
     @Autowired
     private CabService cabservice;
 
-
     @PostMapping()
     public Cab addCabHandler(@RequestBody Cab cab) {
         return cabservice.addCab(cab);

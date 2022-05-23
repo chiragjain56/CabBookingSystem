@@ -9,31 +9,32 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("/drivers")
 public class DriverController {
     @Autowired
     private DriverService driverService;
 
-    @GetMapping("/driver")
+    @GetMapping()
     public List<Driver> getAllDrivers() {
         return driverService.getAllDrivers();
     }
 
-    @GetMapping("/driver/{id}")
+    @GetMapping("/{id}")
     public Driver getDriverById(@PathVariable("id") Integer id) {
         return driverService.getDriverByID(id);
     }
 
-    @PutMapping("/driver/{id}")
+    @PutMapping("/{id}")
     public Driver updateDriver(@PathVariable("id") Integer id, @RequestBody Driver driver) {
         return driverService.updateDriver(id, driver);
     }
 
-    @DeleteMapping("/driver/{id}")
+    @DeleteMapping("/{id}")
     public Driver deleteDriver(@PathVariable("id") Integer id) {
         return driverService.deleteDriver(id);
     }
 
-    @PostMapping("/driver")
+    @PostMapping()
     public Driver addDriver(@RequestBody Driver driver) {
         return driverService.addDriver(driver);
     }

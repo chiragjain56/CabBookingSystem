@@ -13,27 +13,27 @@ public class AdminController {
     @Autowired
     private AdminService adminService;
 
-    @GetMapping("/admin/{id}")
+    @GetMapping("/admins/{id}")
     public Admin getAdmin(@PathVariable("id") Integer id) {
         return adminService.getAdmin(id);
     }
 
-    @GetMapping("/admin")
+    @GetMapping("/admins")
     public List<Admin> getAllAdmins() {
         return adminService.getAllAdmins();
     }
 
-    @PostMapping("/admin")
+    @PostMapping("/admins")
     public Admin insertAdmin(@RequestBody Admin admin) {
         return adminService.insertAdmin(admin);
     }
 
-    @PutMapping("/admin/{id}")
+    @PutMapping("/admins/{id}")
     public Admin updateAdmin(@PathVariable("id") Integer id, @RequestBody Admin admin) {
         return adminService.updateAdmin(id, admin);
     }
 
-    @DeleteMapping("/admin/{id}")
+    @DeleteMapping("/admins/{id}")
     public Admin deleteAdmin(@PathVariable("id") Integer id) {
         return adminService.deleteAdmin(id);
     }

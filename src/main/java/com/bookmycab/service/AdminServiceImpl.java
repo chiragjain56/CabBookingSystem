@@ -32,11 +32,11 @@ public class AdminServiceImpl implements AdminService {
                 .orElseThrow(() -> new AdminException("Admin doesn't exist with id : " + admin.getUserId()));
 
         if (Objects.nonNull(admin.getUsername()) &&
-            !"".equalsIgnoreCase(admin.getUsername()))
+                !"".equalsIgnoreCase(admin.getUsername()))
             adminDB.setUsername(admin.getUsername());
 
         if (Objects.nonNull(admin.getName()) &&
-            !"".equalsIgnoreCase(admin.getName()))
+                !"".equalsIgnoreCase(admin.getName()))
             adminDB.setName(admin.getName());
 
         if (Objects.nonNull(admin.getPassword()) &&

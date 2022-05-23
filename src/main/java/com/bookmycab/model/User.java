@@ -1,11 +1,6 @@
 package com.bookmycab.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
+import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Pattern;
 
@@ -30,6 +25,5 @@ public class User {
 
 	@Email
 	private String email;
-
 	private Long mobileNo;
 }

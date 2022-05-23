@@ -1,8 +1,8 @@
 package com.bookmycab.service;
 
-import com.bookmycab.exceptions.CustomerExceptions;
+import com.bookmycab.exceptions.CustomerException;
 import com.bookmycab.model.Customer;
-import com.bookmycab.repository.CustomerRepository;
+import com.bookmycab.repository.CustomerDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,20 +10,20 @@ import java.util.List;
 import java.util.Objects;
 
 @Service
-public class CustomerServiceImpl implements CustomerService{
+public class CustomerServiceImpl implements CustomerService {
 
     @Autowired
-    private CustomerRepository customerRepositry;
+    private CustomerDao customerRepositry;
 
     @Override
-    public Customer insertCustomer(Customer customer)throws CustomerExceptions {
-      return customerRepositry.save(customer);
+    public Customer insertCustomer(Customer customer) throws CustomerException {
+        return customerRepositry.save(customer);
     }
 
     @Override
-    public Customer updateCustomer(Customer customer, Integer id) throws CustomerExceptions {
+    public Customer updateCustomer(Customer customer, Integer id) throws CustomerException {
         Customer customerDb = customerRepositry.findById(id)
-                .orElseThrow(() -> new CustomerExceptions("Admin doesn't exist with id : " + customer.getUserId()));
+                .orElseThrow(() -> new CustomerException("Admin doesn't exist with id : " + customer.getUserId()));
 
         if (Objects.nonNull(customer.getUsername()) &&
                 !"".equalsIgnoreCase(customer.getUsername()))
@@ -50,10 +50,10 @@ public class CustomerServiceImpl implements CustomerService{
     }
 
     @Override
-    public Customer deleteCustomer(Integer customerId) throws CustomerExceptions {
-       Customer customer =  customerRepositry.findById(customerId).orElseThrow(() -> new CustomerExceptions("Customer doesn't exist with this Id"+ customerId));
-       customerRepositry.delete(customer);
-       return customer;
+    public Customer deleteCustomer(Integer customerId) throws CustomerException {
+        Customer customer = customerRepositry.findById(customerId).orElseThrow(() -> new CustomerException("Customer doesn't exist with this Id" + customerId));
+        customerRepositry.delete(customer);
+        return customer;
     }
 
     @Override
@@ -62,17 +62,17 @@ public class CustomerServiceImpl implements CustomerService{
     }
 
     @Override
-    public Customer viewCustomer(Integer customerId) throws CustomerExceptions {
-        Customer customer = customerRepositry.findById(customerId).orElseThrow(() -> new CustomerExceptions("Customer doesn't exist with this ID "+ customerId));
+    public Customer viewCustomer(Integer customerId) throws CustomerException {
+        Customer customer = customerRepositry.findById(customerId).orElseThrow(() -> new CustomerException("Customer doesn't exist with this ID " + customerId));
         return customer;
     }
 
     @Override
-    public Customer validateCustomer(String username, String password) throws CustomerExceptions {
-       Customer customer = customerRepositry.validateCustomer(username,password);
-       if(customer == null)
-           throw new CustomerExceptions("Customer doesn't Exist... Sorry!");
-       else
-           return customer;
+    public Customer validateCustomer(String username, String password) throws CustomerException {
+        Customer customer = customerRepositry.validateCustomer(username, password);
+        if (customer == null)
+            throw new CustomerException("Customer doesn't Exist... Sorry!");
+        else
+            return customer;
     }
 }
