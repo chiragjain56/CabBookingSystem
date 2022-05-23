@@ -8,11 +8,11 @@ import lombok.Data;
 
 @Data
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class User {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer userId;
 	
 	@Pattern(regexp = "^[a-z]{3,25}", message = "length must be >=3")

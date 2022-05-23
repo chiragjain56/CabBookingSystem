@@ -2,6 +2,7 @@ package com.bookmycab.service;
 
 import com.bookmycab.exceptions.CustomerException;
 import com.bookmycab.model.Customer;
+import com.bookmycab.model.Trip;
 import com.bookmycab.repository.CustomerDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,6 +15,12 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Autowired
     private CustomerDao customerRepositry;
+
+    @Override
+    public List<Trip> getList(Integer customerId) throws CustomerException{
+        Customer customer = customerRepositry.findById(customerId).orElseThrow(() -> new CustomerException("Customer doesn't exist with this Id" + customerId));
+        return  customer.getTrips();
+    }
 
     @Override
     public Customer insertCustomer(Customer customer) throws CustomerException {

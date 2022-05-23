@@ -1,5 +1,6 @@
 package com.bookmycab.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
@@ -14,6 +15,6 @@ import lombok.NoArgsConstructor;
 public class Customer extends User {
 
     @OneToMany(mappedBy = "customer")
-    private List<Trip> trips;
+    private List<Trip> trips = new ArrayList<>();
 
 }

@@ -1,5 +1,6 @@
 package com.bookmycab.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
@@ -21,8 +22,9 @@ public class Driver extends User {
     )
     private Cab cab;
     @OneToMany(mappedBy = "driver")
-    private List<Trip> trips;
+    private List<Trip> trips = new ArrayList<>();
 
     private String dl;
     private Float rating;
+
 }
