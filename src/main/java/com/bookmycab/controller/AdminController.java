@@ -5,6 +5,7 @@ import com.bookmycab.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -24,12 +25,12 @@ public class AdminController {
     }
 
     @PostMapping("/admins")
-    public Admin insertAdmin(@RequestBody Admin admin) {
+    public Admin insertAdmin(@Valid @RequestBody Admin admin) {
         return adminService.insertAdmin(admin);
     }
 
     @PutMapping("/admins/{id}")
-    public Admin updateAdmin(@PathVariable("id") Integer id, @RequestBody Admin admin) {
+    public Admin updateAdmin(@PathVariable("id") Integer id,@Valid  @RequestBody Admin admin) {
         return adminService.updateAdmin(id, admin);
     }
 
