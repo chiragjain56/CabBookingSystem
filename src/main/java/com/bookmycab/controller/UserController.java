@@ -2,6 +2,7 @@ package com.bookmycab.controller;
 
 import java.util.List;
 
+import com.bookmycab.exceptions.UserException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -45,13 +46,37 @@ public class UserController {
         return new ResponseEntity<>("User deleted with id!" + id, HttpStatus.OK);
     }
 
-    @GetMapping("/login")
-    public ResponseEntity<String> userLoginHandler(@RequestParam("username") String username, @RequestParam("password") String password) {
-        User curUser = userService.getUserByUsername(username);
-        if (curUser.getPassword().equals(password))
-            return new ResponseEntity<>("Login success!", HttpStatus.OK);
-        else
-            return new ResponseEntity<>("Password not matched!", HttpStatus.UNAUTHORIZED);
+    @PostMapping("/login")
+    public ResponseEntity<String> userLoginHandler(@RequestBody User user) {
+//        if (curUser.getPassword().equals(password))
+//            return new ResponseEntity<>("Login success!", HttpStatus.OK);
+//        else
+//            return new ResponseEntity<>("Password not matched!", HttpStatus.UNAUTHORIZED);
+
+        try {
+            boolean loginSuccessful = userService.loginUser(user);
+            if (loginSuccessful)
+                return new ResponseEntity<>("login successful", HttpStatus.OK);
+            return new ResponseEntity<>("passwords don't match", HttpStatus.UNAUTHORIZED);
+        } catch (UserException e) {
+            return new ResponseEntity<>("User does not exist", HttpStatus.BAD_REQUEST);
+        }
     }
 
+    @GetMapping("/login/{id}")
+    public boolean isLoggedIn(@PathVariable("id") Integer id) {
+        User user = new User();
+        user.setUserId(id);
+        return userService.isLoggedIn(user);
+    }
+
+    @GetMapping("/logout/{id}")
+    public ResponseEntity<String> logout(@PathVariable("id") Integer id) {
+        User user = new User();
+        user.setUserId(id);
+        boolean successful = userService.logoutUser(user);
+        if (successful)
+            return new ResponseEntity<>("User logged out successfully", HttpStatus.OK);
+        return new ResponseEntity<>("User not logged in", HttpStatus.BAD_REQUEST);
+    }
 }

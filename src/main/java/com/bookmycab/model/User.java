@@ -5,6 +5,9 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.Pattern;
 
 import lombok.Data;
+import org.hibernate.annotations.ColumnTransformer;
+
+import java.util.List;
 
 @Data
 @Entity
@@ -15,15 +18,28 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer userId;
 	
-	@Pattern(regexp = "^[a-z]{3,25}", message = "length must be >=3")
+	@Pattern(regexp = "^[a-zA-Z0-9]{3,25}", message = "length must be >=3")
+	@Column(
+			unique = true
+	)
 	private String username;
 
 	private String name;
 
 	@Pattern(regexp = "^[a-zA-Z0-9]{8,20}", message="length must be >=8")
+	@Column(
+			nullable = false
+	)
+	@ColumnTransformer(
+			write = "HEX(AES_ENCRYPT(?, 'secret-key'))",
+			read = "CAST(AES_DECRYPT(UNHEX(password), 'secret-key') as CHAR)"
+	)
 	private String password;
 
 	@Email
 	private String email;
 	private Long mobileNo;
+
+	@ElementCollection
+	private List<UserRoles> roles = null;
 }

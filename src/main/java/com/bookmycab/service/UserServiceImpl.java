@@ -16,6 +16,9 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserDao userDao;
 
+    @Autowired
+    private UserTrackerService userTrackerService;
+
     @Override
     public User saveUser(User user) throws UserException {
         return userDao.save(user);
@@ -54,6 +57,20 @@ public class UserServiceImpl implements UserService {
     @Override
     public User getUserByUsername(String username) throws UserException {
         return userDao.findByUsername(username);
+    }
+
+    @Override
+    public boolean isLoggedIn(User user) {
+        return userTrackerService.isLoggedIn(user);
+    }
+
+    public boolean loginUser(User user) {
+        return userTrackerService.loginUser(user);
+    }
+
+    @Override
+    public boolean logoutUser(User user) {
+        return userTrackerService.logoutUser(user);
     }
 
 }

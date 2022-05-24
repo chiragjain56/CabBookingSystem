@@ -1,6 +1,7 @@
 package com.bookmycab.controller;
 
 import com.bookmycab.model.Driver;
+import com.bookmycab.model.UserRoles;
 import com.bookmycab.service.DriverService;
 import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.stereotype.Repository;
@@ -36,13 +37,7 @@ public class DriverController {
 
     @PostMapping()
     public Driver addDriver(@RequestBody Driver driver) {
+        driver.setRoles(List.of(UserRoles.DRIVER));
         return driverService.addDriver(driver);
     }
-//
-//    @GetMapping("/driver/{id}")
-//    public String getDlByID(@PathVariable("id") Integer id){
-//        return driverService.getDlByID(id);
-//    }
-
-
 }
