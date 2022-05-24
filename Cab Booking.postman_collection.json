@@ -1,0 +1,303 @@
+{
+	"info": {
+		"_postman_id": "3a148efd-152c-44cb-9eda-e5c8ca4680bf",
+		"name": "Cab Booking",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "Admin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"admin\",\n    \"name\": \"Admin\",\n    \"password\": \"admin123456\",\n    \"email\": \"admin@email.com\",\n    \"mobileNo\": \"9874563210\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8088/admins",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"admins"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "all Admin",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8088/admins",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"admins"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Admin By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8088/admins/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"admins",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Admin",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"adminbad\",\n    \"name\": \"Admin bad\",\n    \"password\": \"admin123456\",\n    \"email\": \"adminbad@email.com\",\n    \"mobileNo\": \"9874563210\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8088/admins/3",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"admins",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Admin",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8088/admins/3",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"admins",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cab and Driver",
+			"item": [
+				{
+					"name": "Cab",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"type\": \"mini\",\n    \"perKmRate\": \"80\",\n    \"sittingCapcity\": 3,\n    \"available\": true,\n    \"registrationNumber\": \"MIN01\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8088/cabs",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"cabs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "all Cab",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8088/cabs",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"cabs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Driver",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"cab\": {\n        \"type\": \"mini\",\n        \"perKmRate\": \"80\",\n        \"sittingCapcity\": 3,\n        \"available\": true,\n        \"registrationNumber\": \"MIN03\"\n    },\n    \"dl\": \"DR002\",\n    \"rating\": 4.5,\n    \"username\": \"drivertwo\",\n    \"name\": \"Driver 002\",\n    \"password\": \"driver001\",\n    \"email\": \"driver001@email.com\",\n    \"mobileNo\": 8795462130\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8088/drivers",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"drivers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All Driver",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8088/drivers",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"drivers"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Customer",
+			"item": [
+				{
+					"name": "Customer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"customer\",\n    \"name\": \"Customer\",\n    \"password\": \"customer123456\",\n    \"email\": \"customer@email.com\",\n    \"mobileNo\": 9874563210\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8088/customers",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All Costomer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8088/customers",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"customers"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Trip",
+			"item": [
+				{
+					"name": "Trip by trip id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8088/trips/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"trips",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Trip",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
