@@ -1,6 +1,7 @@
 package com.bookmycab.controller;
 
 import com.bookmycab.model.Admin;
+import com.bookmycab.model.UserRoles;
 import com.bookmycab.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -25,6 +26,7 @@ public class AdminController {
 
     @PostMapping("/admins")
     public Admin insertAdmin(@RequestBody Admin admin) {
+        admin.setRoles(List.of(UserRoles.ADMIN));
         return adminService.insertAdmin(admin);
     }
 

@@ -3,6 +3,7 @@ package com.bookmycab.controller;
 
 import com.bookmycab.exceptions.CustomerException;
 import com.bookmycab.model.Customer;
+import com.bookmycab.model.UserRoles;
 import com.bookmycab.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -32,6 +33,7 @@ public class CustomerController {
 
     @PostMapping("/customers")
     public Customer insertCustomer(@RequestBody Customer customer) {
+        customer.setRoles(List.of(UserRoles.CUSTOMER));
         return customerService.insertCustomer(customer);
     }
 

@@ -7,6 +7,8 @@ import javax.validation.constraints.Pattern;
 import lombok.Data;
 import org.hibernate.annotations.ColumnTransformer;
 
+import java.util.List;
+
 @Data
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
@@ -37,4 +39,7 @@ public class User {
 	@Email
 	private String email;
 	private Long mobileNo;
+
+	@ElementCollection
+	private List<UserRoles> roles = null;
 }
