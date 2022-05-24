@@ -29,10 +29,6 @@ public class TripServiceImpl implements TripService {
         return tripDao.save(trip);
     }
 
-//    @Override
-//    public Trip addTrip(Trip trip) {
-//        return tripDao.save(trip);
-//    }
 
     @Override
     public Trip updateTrip(Integer id, Trip trip) throws TripException {
@@ -57,24 +53,18 @@ public class TripServiceImpl implements TripService {
 
     @Override
     public List<Trip> getAllTripsByCustomer(Integer customerId) throws TripException {
-//        Customer customer = customerService.viewCustomer(customerId);
         List<Trip> list = customerService.getList(customerId);
-//        if(list.size()==0) throw new TripException("No trip history for this customer having id : "+customerId);
+        if(list.size()==0) throw new TripException("No trip history for this customer having id : "+customerId);
         return list;
     }
 
 
-//    @Override
-//    public List<Trip> getAllTrips(Integer customerId) throws TripException{
-//        List<Trip> list = tripDao.findAllByCustomerId(customerId);
-//        if(list.size()==0) throw new TripException("No trips found for customerId : "+customerId);
-//        return list;
-//    }
 
-//    @Override
-//    public Double calculateBill(Integer customerId) throws TripException {
-//        Double bill = tripDao.findBillByCustomerId(customerId);
-//        if(bill==0) throw new TripException("No trip/bill found for customerId : "+customerId);
-//        return bill;
-//    }
+    @Override
+    public Double calculateBill(Integer id) throws TripException {
+        Trip trip = tripDao.findById(id).orElseThrow(() -> new TripException("Trip with id : " + id + " does not exit.."));
+        Double bill = trip.getBill();
+        if(bill==0) throw new TripException("No trip/bill found for customerId : "+id);
+        return bill;
+    }
 }

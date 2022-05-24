@@ -12,10 +12,7 @@ import java.util.List;
 
 @Repository
 public interface TripDao extends JpaRepository<Trip, Integer> {
-//    @Query("select t from Trip t where t.userId=:customerId")
-//    List<Trip> findAllByCustomerId(@PathParam("customerId") Integer customerId);
     List<Trip> findByCustomer(Customer customer);
 
-//    @Query("select bill from trips where customer_user_id=${customerId}")
-//    Double findBillByCustomerId(Integer customerId);
+    Double findBillByCustomer(Customer customer);
 }

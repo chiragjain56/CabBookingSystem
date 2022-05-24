@@ -19,15 +19,11 @@ public class TripController {
     private TripService tripService;
 
     @PostMapping("/{c}/{d}")
-    Trip saveTrip(@RequestBody Trip trip, @PathVariable("c") Integer customerId, @PathVariable("d") Integer driverId){
-        return tripService.addTrip(trip, customerId, driverId);
+    ResponseEntity<Trip> saveTrip(@RequestBody Trip trip, @PathVariable("c") Integer customerId, @PathVariable("d") Integer driverId){
+        Trip trip1 = tripService.addTrip(trip, customerId, driverId);
+        return new ResponseEntity<>(trip1, HttpStatus.ACCEPTED);
     }
 
-//    @PostMapping
-//    ResponseEntity<Trip> saveTrip(@RequestBody Trip trip) {
-//        tripService.addTrip(trip);
-//        return new ResponseEntity<Trip>(trip, HttpStatus.ACCEPTED);
-//    }
 
     @GetMapping("/{customerId}")
     ResponseEntity<List<Trip>> getAllTrips(@PathVariable("customerId") Integer customerId) {
@@ -35,11 +31,11 @@ public class TripController {
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
 
-//	@GetMapping("/bill/{customerId}")
-//	ResponseEntity<Double> calculateBill(@PathVariable("customerId") Integer customerId) {
-//        Double bill = tripService.calculateBill(customerId);
-//        return new ResponseEntity<>(bill, HttpStatus.OK);
-//    }
+	@GetMapping("/bill/{id}")
+	ResponseEntity<Double> calculateBill(@PathVariable("id") Integer customerId) {
+        Double bill = tripService.calculateBill(customerId);
+        return new ResponseEntity<>(bill, HttpStatus.OK);
+    }
 
 
     @PutMapping("/{id}")
