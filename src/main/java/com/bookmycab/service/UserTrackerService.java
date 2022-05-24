@@ -21,7 +21,6 @@ public class UserTrackerService {
     UserDao userRepository;
 
     public boolean isLoggedIn(User user) {
-        System.out.println(user);
         Optional<UserTracker> userid = userTrackerRepository.findByUserId(user.getUserId());
         return userid.isPresent();
     }
@@ -36,6 +35,14 @@ public class UserTrackerService {
         UserTracker ut = new UserTracker();
         ut.setUserId(userDB.getUserId());
         userTrackerRepository.save(ut);
+        return true;
+    }
+
+    public boolean logoutUser(User user) {
+        Optional<UserTracker> ut = userTrackerRepository.findByUserId(user.getUserId());
+        if (ut.isEmpty())
+            return false;
+        userTrackerRepository.delete(ut.get());
         return true;
     }
 }

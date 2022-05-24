@@ -68,4 +68,9 @@ public class UserServiceImpl implements UserService {
         return userTrackerService.loginUser(user);
     }
 
+    @Override
+    public boolean logoutUser(User user) {
+        return userTrackerService.logoutUser(user);
+    }
+
 }

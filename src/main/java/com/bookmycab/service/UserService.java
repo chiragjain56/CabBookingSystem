@@ -21,4 +21,6 @@ public interface UserService {
     boolean isLoggedIn(User user);
 
     boolean loginUser(User user);
+
+    boolean logoutUser(User user);
 }

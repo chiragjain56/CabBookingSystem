@@ -70,4 +70,13 @@ public class UserController {
         return userService.isLoggedIn(user);
     }
 
+    @GetMapping("/logout/{id}")
+    public ResponseEntity<String> logout(@PathVariable("id") Integer id) {
+        User user = new User();
+        user.setUserId(id);
+        boolean successful = userService.logoutUser(user);
+        if (successful)
+            return new ResponseEntity<>("User logged out successfully", HttpStatus.OK);
+        return new ResponseEntity<>("User not logged in", HttpStatus.BAD_REQUEST);
+    }
 }
