@@ -17,4 +17,8 @@ public interface UserService {
     User getUserById(Integer id) throws UserException;
 
     User getUserByUsername(String username) throws UserException;
+
+    boolean isLoggedIn(User user);
+
+    boolean loginUser(User user);
 }
