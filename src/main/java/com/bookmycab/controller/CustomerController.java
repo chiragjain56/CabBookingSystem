@@ -41,9 +41,4 @@ public class CustomerController {
     public Customer deleteCustomer(@PathVariable("id") Integer id) {
         return customerService.deleteCustomer(id);
     }
-
-    @GetMapping("/customers/{name}/{pass}")
-    public Customer validateCustomer(@PathVariable("user") String username, @PathVariable("pass") String password) throws CustomerException {
-        return customerService.validateCustomer(username, password);
-    }
 }
