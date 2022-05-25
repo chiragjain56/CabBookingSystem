@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "3a148efd-152c-44cb-9eda-e5c8ca4680bf",
+		"_postman_id": "3a3e60b4-187d-4801-baf9-49c8ed65a585",
 		"name": "Cab Booking",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -270,6 +270,17 @@
 			"name": "Trip",
 			"item": [
 				{
+					"name": "Trip",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Trip by trip id",
 					"request": {
 						"method": "GET",
@@ -287,13 +298,104 @@
 						}
 					},
 					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "User logged in?",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8088/users/login/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"users",
+								"login",
+								"2"
+							]
+						}
+					},
+					"response": []
 				},
 				{
-					"name": "Trip",
+					"name": "User",
 					"request": {
 						"method": "POST",
 						"header": [],
-						"url": null
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"adminabc\",\n    \"name\": \"Admin\",\n    \"password\": \"admin123456\",\n    \"email\": \"admin@email.com\",\n    \"mobileNo\": \"9874563210\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8088/users",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"user\",\n    \"password\": \"user123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8088/users/login",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8088/users/logout/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"users",
+								"logout",
+								"2"
+							]
+						}
 					},
 					"response": []
 				}
