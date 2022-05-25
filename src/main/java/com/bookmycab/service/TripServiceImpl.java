@@ -9,6 +9,7 @@ import com.bookmycab.repository.TripDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -25,7 +26,8 @@ public class TripServiceImpl implements TripService {
     public Trip addTrip(Trip trip, Integer customerId, Integer driverId) {
         trip.setCustomer(customerService.viewCustomer(customerId));
         trip.setDriver(driverService.getDriverByID(driverId));
-//        System.out.println(trip);
+        trip.setFromDateTime(LocalDateTime.now());
+        trip.setToDateTime(LocalDateTime.now().plusDays(1));
         return tripDao.save(trip);
     }
 
