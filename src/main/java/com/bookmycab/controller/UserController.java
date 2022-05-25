@@ -14,33 +14,32 @@ import com.bookmycab.service.UserService;
 // TODO: Completely remove User Controller
 
 @RestController
-@RequestMapping("/users")
 public class UserController {
 
     @Autowired
     private UserService userService;
 
-    @PostMapping()
+    @PostMapping("/users")
     public User saveUserHandler(@RequestBody User user) {
         return userService.saveUser(user);
     }
 
-    @GetMapping()
+    @GetMapping("/users")
     public List<User> getAllUserHandler() {
         return userService.getAllUser();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/users/{id}")
     public User getUserHandler(@PathVariable("id") Integer id) {
         return userService.getUserById(id);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/users/{id}")
     public User updateUserHandler(@PathVariable("id") Integer id, @RequestBody User user) {
         return userService.updateUser(id, user);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/users/{id}")
     public ResponseEntity<String> deleteUserHandler(@PathVariable("id") Integer id) {
         userService.deleteUser(id);
         return new ResponseEntity<>("User deleted with id!" + id, HttpStatus.OK);
