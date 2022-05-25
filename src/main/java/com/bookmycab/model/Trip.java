@@ -39,7 +39,9 @@ public class Trip {
     private LocalDateTime fromDateTime;
     private LocalDateTime toDateTime;
 
-    private Boolean status;
+//    private Boolean status;
+    @Enumerated
+    private TripStatus status;
     @NotNull
     @Min(1)
     private Double distanceInKm;

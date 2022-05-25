@@ -15,4 +15,6 @@ public interface TripService {
     List<Trip> getAllTripsByCustomer(Integer customerId) throws TripException;
 
     Double calculateBill(Integer id) throws TripException;
+
+    Trip getTripById(Integer id) throws TripException;
 }

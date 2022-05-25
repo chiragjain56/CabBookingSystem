@@ -3,6 +3,7 @@ package com.bookmycab.service;
 import com.bookmycab.exceptions.TripException;
 import com.bookmycab.model.Customer;
 import com.bookmycab.model.Trip;
+import com.bookmycab.model.TripStatus;
 import com.bookmycab.repository.CustomerDao;
 import com.bookmycab.repository.DriverDao;
 import com.bookmycab.repository.TripDao;
@@ -25,7 +26,7 @@ public class TripServiceImpl implements TripService {
     public Trip addTrip(Trip trip, Integer customerId, Integer driverId) {
         trip.setCustomer(customerService.viewCustomer(customerId));
         trip.setDriver(driverService.getDriverByID(driverId));
-//        System.out.println(trip);
+        trip.setStatus(TripStatus.CONFIRMED);
         return tripDao.save(trip);
     }
 
@@ -66,5 +67,10 @@ public class TripServiceImpl implements TripService {
         Double bill = trip.getBill();
         if(bill==0) throw new TripException("No trip/bill found for customerId : "+id);
         return bill;
+    }
+
+    @Override
+    public Trip getTripById(Integer id) throws TripException {
+        return tripDao.findById(id).orElseThrow(() -> new TripException("Trip with id : " + id + " does not exit.."));
     }
 }
