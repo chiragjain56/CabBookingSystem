@@ -1,8 +1,9 @@
 {
 	"info": {
-		"_postman_id": "3a3e60b4-187d-4801-baf9-49c8ed65a585",
+		"_postman_id": "289a5cee-ebaa-4f63-99b4-391b9a965cab",
 		"name": "Cab Booking",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21143805"
 	},
 	"item": [
 		{
@@ -68,14 +69,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8088/login/1",
+							"raw": "localhost:8088/login/58",
 							"host": [
 								"localhost"
 							],
 							"port": "8088",
 							"path": [
 								"login",
-								"1"
+								"58"
 							]
 						}
 					},
@@ -87,14 +88,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8088/logout/1",
+							"raw": "localhost:8088/logout/58",
 							"host": [
 								"localhost"
 							],
 							"port": "8088",
 							"path": [
 								"logout",
-								"1"
+								"58"
 							]
 						}
 					},

@@ -1,16 +1,13 @@
 package com.bookmycab.model;
 
-import java.time.LocalDateTime;
-import java.util.Date;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import java.time.LocalDateTime;
 
 @Data
 @NoArgsConstructor

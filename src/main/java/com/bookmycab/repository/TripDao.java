@@ -12,7 +12,4 @@ import java.util.List;
 
 @Repository
 public interface TripDao extends JpaRepository<Trip, Integer> {
-    List<Trip> findByCustomer(Customer customer);
-
-    Double findBillByCustomer(Customer customer);
 }
