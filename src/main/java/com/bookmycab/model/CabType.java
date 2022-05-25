@@ -1,7 +1,7 @@
 package com.bookmycab.model;
 
 public enum CabType {
-    ECCONOMY, COMPACT, COMPACT_PREMIUM, MUV, MUV_PREMIUM, LUXURY, SUPER_LUXURY;
+    ECONOMY, COMPACT, COMPACT_PREMIUM, MUV, MUV_PREMIUM, LUXURY, SUPER_LUXURY;
     double price;
 
     public void setPrice(double price) {
@@ -10,7 +10,7 @@ public enum CabType {
 
     public int sittingCapacity() {
         switch (this) {
-            case ECCONOMY:
+            case ECONOMY:
                 return 4;
             case COMPACT:
                 return 4;

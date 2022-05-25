@@ -2,6 +2,8 @@ package com.bookmycab.service;
 
 import com.bookmycab.exceptions.CabException;
 import com.bookmycab.exceptions.DriverException;
+import com.bookmycab.model.Cab;
+import com.bookmycab.model.CabType;
 import com.bookmycab.model.Driver;
 import com.bookmycab.repository.DriverDao;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,11 @@ public class DriverServiceImpl implements DriverService {
 
     @Override
     public Driver addDriver(Driver driver) {
+        Cab cab = driver.getCab();
+        CabType cabType = cab.getCabType();
+        cab.setSittingCapcity(cabType.sittingCapacity());
+        cab.setPerKmRate(cabType.getPrice());
+        driver.setCab(cab);
         return driverDao.save(driver);
     }
 

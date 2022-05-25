@@ -2,6 +2,7 @@ package com.bookmycab.service;
 
 import java.util.List;
 
+import com.bookmycab.model.CabType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +18,9 @@ public class CabServiceImpl implements CabService {
 
     @Override
     public Cab addCab(Cab cab) {
+        CabType type = cab.getCabType();
+        cab.setPerKmRate(type.getPrice());
+        cab.setSittingCapcity(type.sittingCapacity());
         return cabDao.save(cab);
     }
 
