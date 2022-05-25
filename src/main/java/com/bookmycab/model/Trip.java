@@ -4,6 +4,8 @@ import java.time.LocalDateTime;
 import java.util.Date;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
@@ -23,6 +25,7 @@ public class Trip {
             fetch = FetchType.LAZY,
             cascade = CascadeType.ALL
     )
+    @NotNull
     private Customer customer;
 
     @JsonIgnore
@@ -30,22 +33,19 @@ public class Trip {
             fetch = FetchType.LAZY,
             cascade = CascadeType.ALL
     )
+    @NotNull
     private Driver driver;
-
+    @NotNull
     private String fromLocation;
+    @NotNull
     private String toLocation;
     private LocalDateTime fromDateTime;
     private LocalDateTime toDateTime;
 
     private Boolean status;
+    @NotNull
+    @Min(1)
     private Double distanceInKm;
+    @NotNull
     private Double bill;
-
-    public void setFromDateTime(LocalDateTime fromDateTime) {
-        this.fromDateTime = LocalDateTime.now();
-    }
-
-    public void setToDateTime(LocalDateTime toDateTime) {
-        this.toDateTime = toDateTime;
-    }
 }

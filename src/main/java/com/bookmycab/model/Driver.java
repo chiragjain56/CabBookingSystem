@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.NotNull;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,7 +26,9 @@ public class Driver extends User {
     @OneToMany(mappedBy = "driver")
     private List<Trip> trips = new ArrayList<>();
 
+    @NotNull
     private String dl;
+    @Max(5)
     private Float rating;
 
 }

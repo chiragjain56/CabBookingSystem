@@ -3,6 +3,7 @@ package com.bookmycab.model;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 import lombok.Data;
 import org.hibernate.annotations.ColumnTransformer;
@@ -38,6 +39,7 @@ public class User {
 
 	@Email
 	private String email;
+	@Size(min = 10, max = 14)
 	private Long mobileNo;
 
 	@ElementCollection
