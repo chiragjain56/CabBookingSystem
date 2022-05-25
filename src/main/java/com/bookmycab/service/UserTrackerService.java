@@ -8,6 +8,7 @@ import com.bookmycab.repository.UserTrackerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.validation.ConstraintViolationException;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -26,15 +27,20 @@ public class UserTrackerService {
     }
 
     public boolean loginUser(User user) throws UserException {
-        User userDB = userRepository.findByUsername(user.getUsername());
-        if (userDB == null)
-            throw new UserException("User not found");
-        if (!Objects.equals(userDB.getPassword(), user.getPassword()))
-            return false;
+        try {
+            User userDB = userRepository.findByUsername(user.getUsername());
+            if (userDB == null)
+                throw new UserException("User not found");
+            if (!Objects.equals(userDB.getPassword(), user.getPassword()))
+                return false;
 
-        UserTracker ut = new UserTracker();
-        ut.setUserId(userDB.getUserId());
-        userTrackerRepository.save(ut);
+            UserTracker ut = new UserTracker();
+            ut.setUserId(userDB.getUserId());
+            userTrackerRepository.save(ut);
+        } catch (ConstraintViolationException e) {
+            return false;
+        }
+
         return true;
     }
 

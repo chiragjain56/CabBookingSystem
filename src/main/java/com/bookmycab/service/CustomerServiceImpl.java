@@ -49,7 +49,7 @@ public class CustomerServiceImpl implements CustomerService {
             customerDb.setEmail(customer.getEmail());
 
         if (Objects.nonNull(customer.getMobileNo()) &&
-                customer.getMobileNo() != 0)
+                !"".equalsIgnoreCase(customer.getMobileNo()))
             customerDb.setMobileNo(customer.getMobileNo());
 
 

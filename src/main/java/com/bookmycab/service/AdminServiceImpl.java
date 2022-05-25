@@ -48,7 +48,7 @@ public class AdminServiceImpl implements AdminService {
             adminDB.setEmail(admin.getEmail());
 
         if (Objects.nonNull(admin.getMobileNo()) &&
-                admin.getMobileNo() != 0)
+                !"".equalsIgnoreCase(admin.getMobileNo()))
             adminDB.setMobileNo(admin.getMobileNo());
 
 

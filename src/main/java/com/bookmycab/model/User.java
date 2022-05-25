@@ -39,8 +39,9 @@ public class User {
 
 	@Email
 	private String email;
-	@Size(min = 10, max = 14)
-	private Long mobileNo;
+
+	@Pattern(regexp = "^\\d{10}$", message = "length must be = 10")
+	private String mobileNo;
 
 	@ElementCollection
 	private List<UserRoles> roles = null;
