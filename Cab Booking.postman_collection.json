@@ -6,6 +6,103 @@
 	},
 	"item": [
 		{
+			"name": "User",
+			"item": [
+				{
+					"name": "User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"user\",\n    \"name\": \"abcdefghij\",\n    \"password\": \"user12345\",\n    \"email\": \"user@email.com\",\n    \"mobileNo\": \"1234589789\",\n    \"roles\": [\"USER\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8088/users",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"user\",\n    \"password\": \"user12345\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8088/login",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User logged in?",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8088/login/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"login",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8088/logout/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"logout",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Admin",
 			"item": [
 				{
@@ -131,7 +228,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"type\": \"mini\",\n    \"perKmRate\": \"80\",\n    \"sittingCapcity\": 3,\n    \"available\": true,\n    \"registrationNumber\": \"MIN01\"\n}",
+							"raw": "{\n    \"cabType\": \"COMPACT\",\n    \"registrationNumber\": \"MIN01\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -176,7 +273,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"cab\": {\n        \"type\": \"mini\",\n        \"perKmRate\": \"80\",\n        \"sittingCapcity\": 3,\n        \"available\": true,\n        \"registrationNumber\": \"MIN03\"\n    },\n    \"dl\": \"DR002\",\n    \"rating\": 4.5,\n    \"username\": \"drivertwo\",\n    \"name\": \"Driver 002\",\n    \"password\": \"driver001\",\n    \"email\": \"driver001@email.com\",\n    \"mobileNo\": 8795462130\n}",
+							"raw": "{\n    \"cab\": {\n        \"cabType\": \"MUV\",\n        \"registrationNumber\": \"MUV001\"\n    },\n    \"dl\": \"DR002\",\n    \"rating\": 4.5,\n    \"username\": \"drivertwo\",\n    \"name\": \"Driver 002\",\n    \"password\": \"driver001\",\n    \"email\": \"driver001@email.com\",\n    \"mobileNo\": \"8795462130\",\n    \"roles\": [\"DRIVER\"]\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -226,7 +323,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"username\": \"customer\",\n    \"name\": \"Customer\",\n    \"password\": \"customer123456\",\n    \"email\": \"customer@email.com\",\n    \"mobileNo\": 9874563210\n}",
+							"raw": "{\n    \"username\": \"customer\",\n    \"name\": \"Customer\",\n    \"password\": \"customer123456\",\n    \"email\": \"customer@email.com\",\n    \"mobileNo\": \"9874563210\",\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -294,106 +391,6 @@
 							"path": [
 								"trips",
 								"1"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "User",
-			"item": [
-				{
-					"name": "User logged in?",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "localhost:8088/users/login/2",
-							"host": [
-								"localhost"
-							],
-							"port": "8088",
-							"path": [
-								"users",
-								"login",
-								"2"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "User",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"username\": \"adminabc\",\n    \"name\": \"Admin\",\n    \"password\": \"admin123456\",\n    \"email\": \"admin@email.com\",\n    \"mobileNo\": \"9874563210\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "localhost:8088/users",
-							"host": [
-								"localhost"
-							],
-							"port": "8088",
-							"path": [
-								"users"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "login user",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"username\": \"user\",\n    \"password\": \"user123456\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "localhost:8088/users/login",
-							"host": [
-								"localhost"
-							],
-							"port": "8088",
-							"path": [
-								"users",
-								"login"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "logout user",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "localhost:8088/users/logout/2",
-							"host": [
-								"localhost"
-							],
-							"port": "8088",
-							"path": [
-								"users",
-								"logout",
-								"2"
 							]
 						}
 					},
