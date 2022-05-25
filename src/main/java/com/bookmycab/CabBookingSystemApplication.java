@@ -26,3 +26,4 @@ public class CabBookingSystemApplication {
         return lvfb;
     }
 }
+//http://localhost:8088/swagger-ui.html
