@@ -2,7 +2,6 @@
 # Cab Booking System
 
 
-
 ## Tech Stack
 
 **Framework:** Spring Boot
