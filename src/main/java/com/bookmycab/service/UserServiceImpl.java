@@ -51,12 +51,13 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User getUserById(Integer id) throws UserException {
-        return userDao.findById(id).orElseThrow(() -> new CabException("User doesn't exist with id : " + id));
+		return userDao.findById(id).orElseThrow(() -> new UserException("User doesn't exist with id : " + id));
     }
 
     @Override
     public User getUserByUsername(String username) throws UserException {
-        return userDao.findByUsername(username);
+		return userDao.findByUsername(username)
+				.orElseThrow(() -> new UserException("User doesn't exist with username : " + username));
     }
 
     @Override

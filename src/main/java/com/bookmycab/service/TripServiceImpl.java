@@ -1,16 +1,16 @@
 package com.bookmycab.service;
 
-import com.bookmycab.exceptions.TripException;
-import com.bookmycab.model.Customer;
-import com.bookmycab.model.Trip;
-import com.bookmycab.model.TripStatus;
-import com.bookmycab.repository.CustomerDao;
-import com.bookmycab.repository.DriverDao;
-import com.bookmycab.repository.TripDao;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import com.bookmycab.exceptions.TripException;
+import com.bookmycab.model.Cab;
+import com.bookmycab.model.Driver;
+import com.bookmycab.model.Trip;
+import com.bookmycab.model.TripStatus;
+import com.bookmycab.repository.TripDao;
 
 @Service
 public class TripServiceImpl implements TripService {
@@ -26,6 +26,9 @@ public class TripServiceImpl implements TripService {
     public Trip addTrip(Trip trip, Integer customerId, Integer driverId) {
         trip.setCustomer(customerService.viewCustomer(customerId));
         trip.setDriver(driverService.getDriverByID(driverId));
+        Driver driver  = driverService.getDriverByID(driverId);
+		Cab cab = driver.getCab();
+		trip.setBill(trip.getDistanceInKm() * cab.getPerKmRate());
         trip.setStatus(TripStatus.CONFIRMED);
         return tripDao.save(trip);
     }

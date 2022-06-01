@@ -30,7 +30,7 @@ public enum CabType {
     }
 
     public double getPrice() {
-        price = 10;
+		price = 2;
         switch (this) {
             case COMPACT:
                 return price *= 1.25;
